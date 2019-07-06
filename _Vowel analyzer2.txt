@@ -1,0 +1,1 @@
+Filename	Vowel	Begin Time (s)	End Time (s)	Duration (ms)	F0 0%	F0 50%	F0 100%	F1 0%	F1 50%	F1 100%	F2 0%	F2 50%	F2 100%	F3 0%	F3 50%	F3 100%	Analyst	Date	Settings	Praat Version	OS
