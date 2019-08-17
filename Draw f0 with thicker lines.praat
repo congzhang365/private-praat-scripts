@@ -152,6 +152,7 @@ for ifile to numberOfFiles
        # Also, Praat default label for y axis is "Pitch".
 	   	
        Line width... 1
+	Black
        One mark left... 'f0max' no no yes
        One mark left... 'f0min' no no yes
        Marks left every... 1 50 yes yes no
