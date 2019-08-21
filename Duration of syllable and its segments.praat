@@ -5,34 +5,30 @@
 ## opens each pair of Sound and TextGrid, gets 
 ## 		1.Filename	
 ## 		2.Segment label	
-## 		3.StartTime
-## 		4.EndTime 
-## 		5.Duration(s)
+## 		3.Syllable label
+##      4.Segment Duration(s) 
+##      5.Syllable Duration(s)
 ##
 ## of each labeled interval(according to tier number), and saves results to a text file.
-##
-## This script is edited based on the script
-## 'collect_pitch_data_from_files.praat' by Mietta Lennes.
-## This script is distributed under the GNU General Public License.
-
-
 
 form Analyze duration and pitches from labeled segments in files
 	comment Directory of sound files
-	text sound_directory C:\Users\Cong\Desktop\ViaX\Xinrong Wang\S6\Edited 2\Edited\
+	text sound_directory C:\Users\
 	sentence Sound_file_extension .wav
 	comment Directory of TextGrid files
-	text textGrid_directory C:\Users\Cong\Desktop\ViaX\Xinrong Wang\S6\Edited 2\Edited\
+	text textGrid_directory C:\Users\
 	sentence TextGrid_file_extension .TextGrid
 	comment Full path of the resulting text file:
-	text resultfile C:\Users\Cong\Desktop\ViaX\Xinrong Wang\S6\Edited 2\Edited\pitches.txt
+	text resultfile C:\Users\dur_result.txt
 	comment Tier number of segments?
 	integer tier_seg 1
     comment Tier number of syllables?
     integer tier_syl 2
+    #comment pause file for some time after each file(in sec)?
+    #integer pause_time 1
 endform
 
-appendInfoLine:"------",date$(),"------"
+#appendInfoLine:"------",date$(),"------"
 
 # Here, you make a listing of all the sound files in a directory.
 # The example gets file names ending with ".wav" from D:\tmp\
@@ -80,7 +76,7 @@ for ifile to numberOfFiles
                 syl_duration = syl_end - syl_start
                 
 				# Save result to text file:
-				resultline$ = "'soundname$' 'seg_label$'    'syllable_lab$' 'seg_duration'  'syl_duration'  'newline$'"
+				resultline$ = "'soundname$''tab$''seg_label$''tab$''syllable_lab$''tab$''seg_duration''tab$' 'syl_duration''tab$''newline$'"
 				fileappend "'resultfile$'" 'resultline$'
 				select TextGrid 'soundname$'
 			endif
@@ -92,8 +88,9 @@ for ifile to numberOfFiles
 	# Remove the temporary objects from the object list
 	select Sound 'soundname$'
 	Remove
-    appendInfoLine: soundname$, " has been processed."
-	select Strings list
+    writeInfoLine: soundname$, " has been processed.", numberOfFiles-ifile," files to go."
+    #sleep (pause_time)
+   	select Strings list
 	# and go on with the next sound file!
 endfor
 
