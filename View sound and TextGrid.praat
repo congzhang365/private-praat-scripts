@@ -1,14 +1,14 @@
 ## View sound file and TextGrid together
 
-## Just have a look. It doesn't edit or modify the original file.
+## Only for viewing the files. It doesn't edit or modify the original file.
 
 
 ## Written by Cong Zhang
 ## Language and Brain Laboratory, University of Oxford
-## Last updated 22 Oct 2017
+## 22 Oct 2017. Last updated 22 Aug 2019.
 
 form Enter directory and search string
-	sentence Directory /Users/michaeltyler/Desktop/
+	sentence Directory /Users/
 	sentence Word
 	sentence Filetype wav
 endform
@@ -24,7 +24,7 @@ for x from 1 to number_of_files
      Read from file... 'directory$''object_name$'.TextGrid
      plus Sound 'object_name$'
      Edit
-     pause  Make any changes then click Continue. 
+     pause  Click Continue after you're done. Changes WON'T be saved. 
      select all
      minus Strings list
      Remove
