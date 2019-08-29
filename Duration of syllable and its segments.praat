@@ -71,8 +71,8 @@ for ifile to numberOfFiles
                 # get the corresponding syllable info
                 syl_int = Get interval at time: tier_syl, seg_start
                 syllable_lab$ = Get label of interval: tier_syl, syl_int
-                syl_start = Get starting point... tier_seg syl_int
-				syl_end = Get end point... tier_seg interval
+                syl_start = Get starting point... tier_syl syl_int
+				syl_end = Get end point... tier_syl syl_int
                 syl_duration = syl_end - syl_start
                 
 				# Save result to text file:
